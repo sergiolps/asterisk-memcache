@@ -1,9 +1,9 @@
 /*
  * Asterisk -- A telephony toolkit for Linux.
  *
- * saycountpl application
+ * Memcache client
  * 
- * Copyright (C) 2004, Andy Powell & TAAN Softworks Corp. 
+ * Copyright (C) 2010, Konstantin Tumalevich (userad@gmail.com) 
  *
  */
 
