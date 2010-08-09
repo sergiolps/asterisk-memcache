@@ -1,0 +1,29 @@
+This is alfa!!!
+
+== Installation
+
+gcc -shared -o app_memcache.so app_memcache.c -lmemcache
+cp app_memcache.so /your/asterisk/modules/location
+
+== Using
+
+In your extensions.conf
+
+exten => 12,1,MEMCACHE(connect connid 127.0.0.1:11211)
+exten => 12,n,NoOp(${connid})
+exten => 12,n,MEMCACHE(set ${connid} a 10)
+exten => 12,n,NoOp(${connid})
+exten => 12,n,MEMCACHE(get ${connid} a MA)
+exten => 12,n,NoOp(${MA})
+exten => 12,n,MEMCACHE(del ${connid} a)
+exten => 12,n,MEMCACHE(disconnect ${connid})
+
+== Commands
+connect - Connect to memcache server (ex: connect connid 127.0.0.1:11211)
+disconnect - Disconnects from memcache (ex: disconnect ${connid})
+set - Add value to memcache (ex: add ${connid} name value)
+get - Get value from memcache (ex: get ${connid} name asterisk_variable_to_store)
+del - Delete value from memcache (ex: del ${connid} name)
+replace - Replace value in memcache (ex: replace ${connid} name new_value)
+inc - Increase value (ex: inc ${connid} name step)
+dec - Decrease value (ex: dec ${connid} name step)
